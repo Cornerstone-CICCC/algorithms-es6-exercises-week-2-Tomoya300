@@ -8,7 +8,20 @@ Create a function named numberOfVowels that will receive a string and return the
 */
 
 const numberOfVowels = function (data) {
-  // Put your solution here
+  // let array = []
+  // for (i = 0; i < data.length; i++) {
+  //   array.push(data[i])
+  // }
+  let array = Array.from(data)
+  let count = 0
+  let filtered = array.filter((text) => {
+   if (text === "a" || text === "e" || text === "i" || text === "o" || text === "u") {
+    count += 1
+    return true
+   }
+   return false
+  })
+  return count
 };
 
 console.log(numberOfVowels("orange")); // 3
