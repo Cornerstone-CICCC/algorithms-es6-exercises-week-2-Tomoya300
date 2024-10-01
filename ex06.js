@@ -20,8 +20,23 @@ Note: There may be multiple available spots for a particular vehicle. It does no
 */
 
 const whereCanIPark = function (spots, vehicle) {
-  // Code here!
+  let carType = {
+    regular: "R",
+    small: ["R", "S"],
+    motorcycle: ["R", "s", "M"]
+  }
+  let empty = carType[vehicle]
+  let result = false
+  spots.forEach((item, y) => {
+    item.forEach((car, x) => {
+      if (empty.includes(car)) {
+        result = [x, y]
+      }
+    })
+  })
+  return result
 };
+
 
 console.log(
   whereCanIPark(
