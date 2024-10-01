@@ -4,7 +4,7 @@ In this exercise, we will be given a normal string of words and turn it into a p
 Percent Encoding
 Take a look at the following URL, specifically the last part:
 
-https://www.google.com/search?q=cornerstone%20college
+https://www.google.com/search?q=cornerstone%20college 
 
 This URL will perform a google search for the term "cornerstone college". Notice that when the string "cornerstone college" is part of a URL, the space is replaced with %20.
 
@@ -18,7 +18,17 @@ Use some sort of looping. Do Not use String.prototype.replace
 */
 
 const urlEncode = function (text) {
-  // Put your solution here
+  let array = text.split(" ")
+  let result = ""
+  array.forEach((item, index) => {
+    if (item) {
+      result += item
+      if (index < array.length - 1 && array[index + 1]) {
+        result += "%20"
+      }
+    }
+  })
+  return result
 };
 
 console.log(urlEncode("cornerstone college")); //cornerstone%20college
